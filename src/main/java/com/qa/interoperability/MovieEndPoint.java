@@ -44,4 +44,12 @@ public class MovieEndPoint {
 	public String deleteMovie(@PathParam("id")Long id) {//reference to id method
 		return service.deleteMovie(id);
 	}
+	
+	@POST
+	@Path("/json/")
+	@Produces({ "application/json" })
+	@Consumes({ "application/json" })
+	public String updateMovie(String movieAsJSON) {
+		return service.updateMovie(movieAsJSON);
+	}
 }
