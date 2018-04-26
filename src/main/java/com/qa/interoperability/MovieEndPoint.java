@@ -7,7 +7,7 @@ import javax.ws.rs.Produces;
 
 import com.qa.business.service.IMovieService;
 
-@Path("/Movie")
+@Path("/movie")
 public class MovieEndPoint {
 	
 	@Inject
@@ -15,7 +15,7 @@ public class MovieEndPoint {
 	
 	@GET
 	@Path("/json")
-	@Produces({ "application/jason" })
+	@Produces({ "application/json" })
 	public String getAllMovies() {
 		return service.getAllMovies();
 	}
