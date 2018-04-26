@@ -40,7 +40,7 @@ public class MovieMapRepository implements IMovieRepository {
 	public String createMovie(String movieAsJSON) {
 		Movie movie=util.getObjectForJSON(movieAsJSON, Movie.class);
 		movieMap.put(movie.getId(),movie);
-		return movieAsJSON;
+		return getAllMovies();
 	}
 
 	@Override
