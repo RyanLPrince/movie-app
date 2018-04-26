@@ -57,4 +57,17 @@ public class MovieDBRepository implements IMovieRepository {
 		//return util.getJSONForObject(movie.getId());
 		return "{\"message\":\"movie has been created\"}";
 	}
+	
+	@Transactional(REQUIRED)
+	@Override
+	public String deleteMovie(Long id) {
+		Movie movie=findMovie(id);
+		if (movie!=null) {
+			manager.remove(movie);
+			return "{\"message\":\"movie has been deleted\"}";
+		}
+		else {
+			return "{\"message\":\"movie does not exist\"}";
+		}
+	}
 }
