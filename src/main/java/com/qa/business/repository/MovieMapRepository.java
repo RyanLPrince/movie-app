@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,6 +14,7 @@ import javax.persistence.Query;
 import com.qa.persistence.domain.Movie;
 import com.qa.util.JSONUtil;
 
+@Alternative 
 public class MovieMapRepository implements IMovieRepository {
 	
 	Map<Long, Movie> movieMap;
@@ -52,9 +54,9 @@ public class MovieMapRepository implements IMovieRepository {
 		Movie movie=util.getObjectForJSON(movieAsJSON, Movie.class);
 		if (!movieMap.containsKey(movie.getId())) {
 			movieMap.put(movie.getId(), movie);
-			return "{\"message\":\"movie has been updated\"}";;
+			return "{\"message\":\"movie has been updated\"}";
 		}else {
-			return "{\"message\":\"movie has not been updated\"}";;
+			return "{\"message\":\"movie has not been updated\"}";
 		}
 		
 	}	
